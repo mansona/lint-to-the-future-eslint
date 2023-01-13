@@ -72,6 +72,8 @@ function list(cwd = process.cwd()) {
       .split('\n')
       .filter((line) => line.length)
       .filter((line) => !line.startsWith('#'))
+      // walkSync can't handle these
+      .filter((line) => !line.startsWith('!'))
       .map((line) => line.replace(/^\//, ''))
       .map((line) => line.replace(/\/$/, '/*'));
   } catch (e) {
@@ -80,7 +82,7 @@ function list(cwd = process.cwd()) {
 
   const files = walkSync(cwd, {
     globs: ['**/*.js', '**/*.ts'],
-    ignore: ignoreFile || ['node_modules/*'],
+    ignore: ignoreFile || ['**/node_modules/*'],
   });
 
   const output = {};
