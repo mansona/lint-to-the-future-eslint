@@ -1,3 +1,8 @@
+v2.0.0 / 2023-01-13
+==================
+* Improve .gitignore handling #13 from @wagenet
+* Sort lints for stability #12 from @wagenet
+
 v1.0.1 / 2022-09-19
 ==================
 * stop ignoring eslint warnings #11 from @mansona
