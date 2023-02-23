@@ -1,3 +1,7 @@
+v2.0.1 / 2023-02-23
+==================
+* Add license #16 from @RobbieTheWagner
+
 v2.0.0 / 2023-01-13
 ==================
 * Improve .gitignore handling #13 from @wagenet
