@@ -1,7 +1,6 @@
 import { expect } from 'chai';
 import { Project } from 'fixturify-project';
 
-// eslint-disable-next-line import/extensions
 import { list } from '../index.js';
 
 describe('list function', function () {
