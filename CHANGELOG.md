@@ -1,5 +1,25 @@
 # Changelog
 
+## Release (2024-09-30)
+
+lint-to-the-future-eslint 2.1.0 (minor)
+
+#### :rocket: Enhancement
+* `lint-to-the-future-eslint`
+  * [#21](https://github.com/mansona/lint-to-the-future-eslint/pull/21) add remove api ([@mansona](https://github.com/mansona))
+
+#### :house: Internal
+* `lint-to-the-future-eslint`
+  * [#24](https://github.com/mansona/lint-to-the-future-eslint/pull/24) use release-plan ([@mansona](https://github.com/mansona))
+  * [#22](https://github.com/mansona/lint-to-the-future-eslint/pull/22) swap to eslint recommended ([@mansona](https://github.com/mansona))
+  * [#23](https://github.com/mansona/lint-to-the-future-eslint/pull/23) move list test to fixturify-project ([@mansona](https://github.com/mansona))
+  * [#20](https://github.com/mansona/lint-to-the-future-eslint/pull/20) swap to fixturify project ([@mansona](https://github.com/mansona))
+  * [#19](https://github.com/mansona/lint-to-the-future-eslint/pull/19) add prettier ([@mansona](https://github.com/mansona))
+  * [#18](https://github.com/mansona/lint-to-the-future-eslint/pull/18) swap to pnpm ([@mansona](https://github.com/mansona))
+
+#### Committers: 1
+- Chris Manson ([@mansona](https://github.com/mansona))
+
 v2.0.1 / 2023-02-23
 ==================
 * Add license #16 from @RobbieTheWagner
