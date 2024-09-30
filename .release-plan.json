@@ -1,0 +1,21 @@
+{
+  "solution": {
+    "lint-to-the-future-eslint": {
+      "impact": "minor",
+      "oldVersion": "2.0.1",
+      "newVersion": "2.1.0",
+      "constraints": [
+        {
+          "impact": "minor",
+          "reason": "Appears in changelog section :rocket: Enhancement"
+        },
+        {
+          "impact": "patch",
+          "reason": "Appears in changelog section :house: Internal"
+        }
+      ],
+      "pkgJSONPath": "./package.json"
+    }
+  },
+  "description": "## Release (2024-09-30)\n\nlint-to-the-future-eslint 2.1.0 (minor)\n\n#### :rocket: Enhancement\n* `lint-to-the-future-eslint`\n  * [#21](https://github.com/mansona/lint-to-the-future-eslint/pull/21) add remove api ([@mansona](https://github.com/mansona))\n\n#### :house: Internal\n* `lint-to-the-future-eslint`\n  * [#24](https://github.com/mansona/lint-to-the-future-eslint/pull/24) use release-plan ([@mansona](https://github.com/mansona))\n  * [#22](https://github.com/mansona/lint-to-the-future-eslint/pull/22) swap to eslint recommended ([@mansona](https://github.com/mansona))\n  * [#23](https://github.com/mansona/lint-to-the-future-eslint/pull/23) move list test to fixturify-project ([@mansona](https://github.com/mansona))\n  * [#20](https://github.com/mansona/lint-to-the-future-eslint/pull/20) swap to fixturify project ([@mansona](https://github.com/mansona))\n  * [#19](https://github.com/mansona/lint-to-the-future-eslint/pull/19) add prettier ([@mansona](https://github.com/mansona))\n  * [#18](https://github.com/mansona/lint-to-the-future-eslint/pull/18) swap to pnpm ([@mansona](https://github.com/mansona))\n\n#### Committers: 1\n- Chris Manson ([@mansona](https://github.com/mansona))\n"
+}
