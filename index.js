@@ -29,6 +29,57 @@ function ignoreError(error) {
   }
 }
 
+function removeIgnore(filePath, rulename) {
+  const file = readFileSync(filePath, 'utf8');
+
+  const firstLine = file.split('\n')[0];
+
+  // The whitespace after `eslint-disable` is important so `eslint-disable-next-line` and variants
+  // aren't picked up.
+  const matched = firstLine.match(/eslint-disable (.*)\*\//);
+
+  if (matched) {
+    const existing = matched[1].split(',').map((item) => item.trim()).filter((item) => item !== rulename);
+
+    if (existing.length) {
+      writeFileSync(filePath, file.replace(/^.*\n/, `/* eslint-disable ${existing.join(', ')} */\n`));
+    } else {
+      writeFileSync(filePath, file.replace(/^.*\n/, ''));
+    }
+  }
+}
+
+function getFiles(cwd, providedGlob) {
+  let ignoreFile;
+
+  try {
+    ignoreFile = readFileSync(join(cwd, '.gitignore'), 'utf8')
+      .split('\n')
+      .filter((line) => line.length)
+      .filter((line) => !line.startsWith('#'))
+      // walkSync can't handle these
+      .filter((line) => !line.startsWith('!'))
+      .map((line) => line.replace(/^\//, ''))
+      .map((line) => line.replace(/\/$/, '/*'));
+  } catch (e) {
+    // noop
+  }
+
+  let globs;
+
+  if (providedGlob) {
+    globs = [providedGlob];
+  } else {
+    globs = ['**/*.js', '**/*.ts'];
+  }
+
+  return walkSync(cwd, {
+    globs,
+    ignore: ignoreFile || ['**/node_modules/*'],
+    directories: false,
+  });
+}
+
 async function ignoreAll(cwd = process.cwd()) {
   const currentPackageJSON = require(join(cwd, 'package.json'));
 
@@ -65,25 +116,7 @@ async function ignoreAll(cwd = process.cwd()) {
 }
 
 function list(cwd = process.cwd()) {
-  let ignoreFile;
-
-  try {
-    ignoreFile = readFileSync(join(cwd, '.gitignore'), 'utf8')
-      .split('\n')
-      .filter((line) => line.length)
-      .filter((line) => !line.startsWith('#'))
-      // walkSync can't handle these
-      .filter((line) => !line.startsWith('!'))
-      .map((line) => line.replace(/^\//, ''))
-      .map((line) => line.replace(/\/$/, '/*'));
-  } catch (e) {
-    // noop
-  }
-
-  const files = walkSync(cwd, {
-    globs: ['**/*.js', '**/*.ts'],
-    ignore: ignoreFile || ['**/node_modules/*'],
-  });
+  const files = getFiles(cwd);
 
   const output = {};
 
@@ -115,7 +148,20 @@ function list(cwd = process.cwd()) {
   return output;
 }
 
+function remove({name, glob} = {}, cwd = process.cwd()) {
+  if (!name) {
+    throw new Error('No rulename was passed to `remove()` in lint-to-the-future-eslint plugin');
+  }
+
+  const files = getFiles(cwd, glob);
+
+  files.forEach((relativeFilePath) => {
+    removeIgnore(join(cwd, relativeFilePath), name);
+  });
+}
+
 module.exports = {
   ignoreAll,
   list,
+  remove,
 };
