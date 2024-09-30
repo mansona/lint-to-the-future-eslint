@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 const { readFileSync, writeFileSync, lstatSync } = require('fs');
 const { join } = require('path');
 const importCwd = require('import-cwd');

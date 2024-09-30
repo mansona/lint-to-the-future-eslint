@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { expect } from 'chai';
 import temp from 'temp';
 import fixturify from 'fixturify';
