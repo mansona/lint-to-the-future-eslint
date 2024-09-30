@@ -5,7 +5,6 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint . --report-unused-disable-directives",
-    "release": "release-it",
     "test": "mocha --recursive --reporter spec",
     "test-watch": "npm run test -- -w --reporter min"
   },
@@ -30,19 +29,19 @@
     "mocha": "^9.1.3",
     "pkg-up": "^4.0.0",
     "prettier": "^3.3.3",
-    "release-it": "^14.11.6"
+    "release-plan": "^0.9.0"
   },
   "peerDependencies": {
     "eslint": "^6.0.0 || ^7.0.0 || ^8.0.0"
   },
+  "packageManager": "pnpm@7.33.7+sha512.7afe2410642b39c698df46da4ce5c7231a5cce360698d69f8cf8f42257d40b3e43f231053b07b8de849fd4ffbf4a71ff57b835137777a352388f3d3da747200e",
   "engines": {
     "node": "10.* || >= 12.*"
   },
-  "@authmaker/generator-express:version": "3.2.6",
-  "packageManager": "pnpm@7.33.7+sha512.7afe2410642b39c698df46da4ce5c7231a5cce360698d69f8cf8f42257d40b3e43f231053b07b8de849fd4ffbf4a71ff57b835137777a352388f3d3da747200e",
   "pnpm": {
     "patchedDependencies": {
       "fixturify-project@7.1.2": "patches/fixturify-project@7.1.2.patch"
     }
-  }
+  },
+  "@authmaker/generator-express:version": "3.2.6"
 }
