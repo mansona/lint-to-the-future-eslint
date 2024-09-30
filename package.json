@@ -15,8 +15,8 @@
     "walk-sync": "^3.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.25.2",
     "@babel/eslint-parser": "^7.19.1",
-    "auto-changelog": "https://git@github.com/mansona/auto-changelog.git#epic",
     "chai": "^4.3.4",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
@@ -36,5 +36,6 @@
   "engines": {
     "node": "10.* || >= 12.*"
   },
-  "@authmaker/generator-express:version": "3.2.6"
+  "@authmaker/generator-express:version": "3.2.6",
+  "packageManager": "pnpm@7.33.7+sha512.7afe2410642b39c698df46da4ce5c7231a5cce360698d69f8cf8f42257d40b3e43f231053b07b8de849fd4ffbf4a71ff57b835137777a352388f3d3da747200e"
 }

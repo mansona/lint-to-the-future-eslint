@@ -2,22 +2,28 @@ name: CI
 
 on:
   push:
-    branches: [ $default-branch ]
-  pull_request:
+    branches:
+      - main
+      - master
+  pull_request: {}
+
+concurrency:
+  group: ci-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   lint:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
+    - uses: actions/checkout@v4
+    - uses: pnpm/action-setup@v4
+    - uses: actions/setup-node@v4
       with:
         node-version: 16
-        cache: npm
-    - run: npm i -g npm@8
-    - run: npm ci
-    - run: npm run lint
+        cache: pnpm
+    - run: pnpm install --frozen-lockfile
+    - run: pnpm run lint
 
   test:
     name: "test with eslint ${{ matrix.eslint-version}} on node v${{ matrix.node-version }}"
@@ -35,12 +41,12 @@ jobs:
           - 18
 
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
+    - uses: actions/checkout@v4
+    - uses: pnpm/action-setup@v4
+    - uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: npm
-    - run: npm i -g npm@8
-    - run: npm ci
-    - run: npm i eslint@${{ matrix.eslint-version }}
-    - run: npm test
+        cache: pnpm
+    - run: pnpm i --frozen-lockfile
+    - run: pnpm i eslint@${{ matrix.eslint-version }}
+    - run: pnpm test
