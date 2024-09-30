@@ -1,3 +1,5 @@
+# Changelog
+
 v2.0.1 / 2023-02-23
 ==================
 * Add license #16 from @RobbieTheWagner
