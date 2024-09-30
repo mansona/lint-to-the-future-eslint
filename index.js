@@ -30,7 +30,6 @@ function ignoreError(error) {
 }
 
 async function ignoreAll(cwd = process.cwd()) {
-  // eslint-disable-next-line global-require, import/no-dynamic-require
   const currentPackageJSON = require(join(cwd, 'package.json'));
 
   const eslintVersion = currentPackageJSON.devDependencies.eslint;

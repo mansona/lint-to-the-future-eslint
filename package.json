@@ -4,7 +4,7 @@
   "repository": "https://github.com/mansona/lint-to-the-future-eslint",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint . --report-unused-disable-directives",
     "release": "release-it",
     "test": "mocha --recursive --reporter spec",
     "test-watch": "npm run test -- -w --reporter min"
@@ -18,8 +18,7 @@
     "@babel/core": "^7.25.2",
     "@babel/eslint-parser": "^7.19.1",
     "chai": "^4.3.4",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint": "^8.0.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-prettier": "^5.2.1",

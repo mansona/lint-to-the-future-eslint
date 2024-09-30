@@ -1,8 +1,12 @@
 {
   "env": {
-    "node": true
+    "node": true,
+    "es6": true
   },
-  "extends": ["airbnb-base", "plugin:prettier/recommended"],
+  "parserOptions": {
+    "ecmaVersion": 8
+  },
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
 
   "overrides": [
     {

@@ -3,7 +3,6 @@ import { Project } from 'fixturify-project';
 import { join } from 'path';
 import { readFileSync } from 'fs';
 
-// eslint-disable-next-line import/extensions
 import { ignoreAll } from '../index.js';
 
 async function ignoreTestFile(input, files) {
