@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { expect } from 'chai';
 
 // eslint-disable-next-line import/extensions
