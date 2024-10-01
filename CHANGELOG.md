@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2024-10-01)
+
+lint-to-the-future-eslint 2.1.2 (patch)
+
+#### :bug: Bug Fix
+* `lint-to-the-future-eslint`
+  * [#28](https://github.com/mansona/lint-to-the-future-eslint/pull/28) use the right name for filter ([@mansona](https://github.com/mansona))
+
+#### Committers: 1
+- Chris Manson ([@mansona](https://github.com/mansona))
+
 ## Release (2024-09-30)
 
 lint-to-the-future-eslint 2.1.1 (patch)
