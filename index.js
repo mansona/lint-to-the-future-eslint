@@ -148,12 +148,12 @@ function list(cwd = process.cwd()) {
   return output;
 }
 
-function remove({name, glob} = {}, cwd = process.cwd()) {
+function remove({name, filter} = {}, cwd = process.cwd()) {
   if (!name) {
     throw new Error('No rulename was passed to `remove()` in lint-to-the-future-eslint plugin');
   }
 
-  const files = getFiles(cwd, glob);
+  const files = getFiles(cwd, filter);
 
   files.forEach((relativeFilePath) => {
     removeIgnore(join(cwd, relativeFilePath), name);
