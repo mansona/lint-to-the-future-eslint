@@ -2,16 +2,16 @@
   "solution": {
     "lint-to-the-future-eslint": {
       "impact": "patch",
-      "oldVersion": "2.1.0",
-      "newVersion": "2.1.1",
+      "oldVersion": "2.1.1",
+      "newVersion": "2.1.2",
       "constraints": [
         {
           "impact": "patch",
-          "reason": "Appears in changelog section :house: Internal"
+          "reason": "Appears in changelog section :bug: Bug Fix"
         }
       ],
       "pkgJSONPath": "./package.json"
     }
   },
-  "description": "## Release (2024-09-30)\n\nlint-to-the-future-eslint 2.1.1 (patch)\n\n#### :house: Internal\n* `lint-to-the-future-eslint`\n  * [#26](https://github.com/mansona/lint-to-the-future-eslint/pull/26) remove npmrc ([@mansona](https://github.com/mansona))\n\n#### Committers: 1\n- Chris Manson ([@mansona](https://github.com/mansona))\n"
+  "description": "## Release (2024-10-01)\n\nlint-to-the-future-eslint 2.1.2 (patch)\n\n#### :bug: Bug Fix\n* `lint-to-the-future-eslint`\n  * [#28](https://github.com/mansona/lint-to-the-future-eslint/pull/28) use the right name for filter ([@mansona](https://github.com/mansona))\n\n#### Committers: 1\n- Chris Manson ([@mansona](https://github.com/mansona))\n"
 }
