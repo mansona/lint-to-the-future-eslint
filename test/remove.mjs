@@ -72,7 +72,7 @@ console.log('hello bananananana!');`,
 console.log('hello world');`,
     });
 
-    remove({ name: 'face-lint', glob: 't*.js' }, project.baseDir);
+    remove({ name: 'face-lint', filter: 't*.js' }, project.baseDir);
 
     expect(readFileSync(join(project.baseDir, 'test.js'), 'utf-8')).to
       .equal(`/* eslint-disable other-lint */
