@@ -9,7 +9,7 @@ async function ignoreTestFile(input, files) {
   const project = new Project({
     files: {
       '.eslintrc.json': '{"extends": "eslint:recommended"}',
-      'test.js': input,
+      'index.js': input,
       'package.json': `{
         "devDependencies": {
           "eslint": "^7.0.0"
@@ -23,7 +23,7 @@ async function ignoreTestFile(input, files) {
   await project.write();
   await ignoreAll(project.baseDir);
 
-  return readFileSync(join(project.baseDir, 'test.js'), 'utf-8');
+  return readFileSync(join(project.baseDir, 'index.js'), 'utf-8');
 }
 
 describe('ignore function', function () {
@@ -90,5 +90,22 @@ debugger
 if (10 === 'false') {
   // something
 }`);
+  });
+
+  it('does the right thing with hash-bang/shebang files', async function () {
+    expect(
+      await ignoreTestFile(`#!/usr/bin/env node
+debugger`),
+    ).to.equal(`#!/usr/bin/env node
+/* eslint-disable no-debugger */
+debugger`);
+
+    expect(
+      await ignoreTestFile(`#!/usr/bin/env node
+/* eslint-disable some-other-lint */
+debugger`),
+    ).to.equal(`#!/usr/bin/env node
+/* eslint-disable no-debugger, some-other-lint */
+debugger`);
   });
 });
