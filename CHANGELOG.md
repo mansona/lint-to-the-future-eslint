@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2024-10-03)
+
+lint-to-the-future-eslint 2.1.3 (patch)
+
+#### :bug: Bug Fix
+* `lint-to-the-future-eslint`
+  * [#30](https://github.com/mansona/lint-to-the-future-eslint/pull/30) Support shebang files ([@mansona](https://github.com/mansona))
+
+#### Committers: 1
+- Chris Manson ([@mansona](https://github.com/mansona))
+
 ## Release (2024-10-01)
 
 lint-to-the-future-eslint 2.1.2 (patch)
