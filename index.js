@@ -1,9 +1,10 @@
 /* eslint-disable prettier/prettier */
-const { readFileSync, writeFileSync, lstatSync } = require('fs');
+const { readFileSync, writeFileSync } = require('fs');
 const { join } = require('path');
-const walkSync = require('walk-sync');
 
 const ignoreAll = require('./lib/ignore-all');
+const list = require('./lib/list');
+const getFiles = require('./lib/get-files');
 
 function removeIgnore(filePath, rulename) {
   const file = readFileSync(filePath, 'utf8');
@@ -23,70 +24,6 @@ function removeIgnore(filePath, rulename) {
       writeFileSync(filePath, file.replace(/^.*\n/, ''));
     }
   }
-}
-
-function getFiles(cwd, providedGlob) {
-  let ignoreFile;
-
-  try {
-    ignoreFile = readFileSync(join(cwd, '.gitignore'), 'utf8')
-      .split('\n')
-      .filter((line) => line.length)
-      .filter((line) => !line.startsWith('#'))
-      // walkSync can't handle these
-      .filter((line) => !line.startsWith('!'))
-      .map((line) => line.replace(/^\//, ''))
-      .map((line) => line.replace(/\/$/, '/*'));
-  } catch (e) {
-    // noop
-  }
-
-  let globs;
-
-  if (providedGlob) {
-    globs = [providedGlob];
-  } else {
-    globs = ['**/*.js', '**/*.ts'];
-  }
-
-  return walkSync(cwd, {
-    globs,
-    ignore: ignoreFile || ['**/node_modules/*'],
-    directories: false,
-  });
-}
-
-function list(cwd = process.cwd()) {
-  const files = getFiles(cwd);
-
-  const output = {};
-
-  files.forEach((relativeFilePath) => {
-    const filePath = join(cwd, relativeFilePath);
-    // prevent odd times when directories might end with `.js` or `.ts`;
-    if (!lstatSync(filePath).isFile()) {
-      return;
-    }
-
-    const file = readFileSync(filePath, 'utf8');
-    const firstLine = file.split('\n')[0];
-    if (!firstLine.includes('eslint-disable ')) {
-      return;
-    }
-
-    const matched = firstLine.match(/eslint-disable (.*)\*\//);
-    const ignoreRules = matched[1].split(',').map((item) => item.trim());
-
-    ignoreRules.forEach((rule) => {
-      if (output[rule]) {
-        output[rule].push(filePath);
-      } else {
-        output[rule] = [filePath];
-      }
-    });
-  });
-
-  return output;
 }
 
 function remove({name, filter} = {}, cwd = process.cwd()) {
