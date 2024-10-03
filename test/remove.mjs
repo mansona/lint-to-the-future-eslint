@@ -81,4 +81,19 @@ console.log('hello world');`);
       .equal(`/* eslint-disable face-lint, other-lint */
 console.log('hello bananananana!');`);
   });
+
+  it('should remove correctly from shebang files', async function () {
+    const project = await setupProject({
+      'test.js': `#! /usr/env node
+/* eslint-disable face-lint, other-lint */
+console.log('hello world');`,
+    });
+
+    remove({ name: 'face-lint', filter: 't*.js' }, project.baseDir);
+
+    expect(readFileSync(join(project.baseDir, 'test.js'), 'utf-8')).to
+      .equal(`#! /usr/env node
+/* eslint-disable other-lint */
+console.log('hello world');`);
+  });
 });
