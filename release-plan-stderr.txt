@@ -1,0 +1,7 @@
+# Unlabeled Changes
+
+* `lint-to-the-future-eslint`
+  * [#32](https://github.com/mansona/lint-to-the-future-eslint/pull/32) add a test to cover the case of an empty eslint-disable ([@mansona](https://github.com/mansona))
+
+
+*Cannot plan release until the above changes are labeled*.
