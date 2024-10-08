@@ -56,4 +56,17 @@ let b = () => {};
       'no-unused-vars': ['index.js'],
     });
   });
+
+  it('should not report rule-less eslint-disable', async function () {
+    const result = await listFiles({
+      'index.js': `
+  /* eslint-disable */
+  let unused = 'face';
+
+  let b = () => {};
+  `,
+    });
+
+    expect(result).to.deep.equal({});
+  });
 });
