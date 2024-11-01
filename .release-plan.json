@@ -1,17 +1,21 @@
 {
   "solution": {
     "lint-to-the-future-eslint": {
-      "impact": "patch",
-      "oldVersion": "2.1.2",
-      "newVersion": "2.1.3",
+      "impact": "minor",
+      "oldVersion": "2.1.3",
+      "newVersion": "2.2.0",
       "constraints": [
         {
+          "impact": "minor",
+          "reason": "Appears in changelog section :rocket: Enhancement"
+        },
+        {
           "impact": "patch",
-          "reason": "Appears in changelog section :bug: Bug Fix"
+          "reason": "Appears in changelog section :house: Internal"
         }
       ],
       "pkgJSONPath": "./package.json"
     }
   },
-  "description": "## Release (2024-10-03)\n\nlint-to-the-future-eslint 2.1.3 (patch)\n\n#### :bug: Bug Fix\n* `lint-to-the-future-eslint`\n  * [#30](https://github.com/mansona/lint-to-the-future-eslint/pull/30) Support shebang files ([@mansona](https://github.com/mansona))\n\n#### Committers: 1\n- Chris Manson ([@mansona](https://github.com/mansona))\n"
+  "description": "## Release (2024-11-01)\n\nlint-to-the-future-eslint 2.2.0 (minor)\n\n#### :rocket: Enhancement\n* `lint-to-the-future-eslint`\n  * [#34](https://github.com/mansona/lint-to-the-future-eslint/pull/34) add support for eslint-9 ([@mansona](https://github.com/mansona))\n\n#### :house: Internal\n* `lint-to-the-future-eslint`\n  * [#32](https://github.com/mansona/lint-to-the-future-eslint/pull/32) add a test to cover the case of an empty eslint-disable ([@mansona](https://github.com/mansona))\n\n#### Committers: 1\n- Chris Manson ([@mansona](https://github.com/mansona))\n"
 }
