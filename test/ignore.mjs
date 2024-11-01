@@ -9,6 +9,12 @@ async function ignoreTestFile(input, files) {
   const project = new Project({
     files: {
       '.eslintrc.json': '{"extends": "eslint:recommended"}',
+      //only for eslint 9
+      'eslint.config.js': `const js = require("@eslint/js");
+
+module.exports = [
+    js.configs.recommended,
+];`,
       'index.js': input,
       'package.json': `{
         "devDependencies": {
@@ -20,6 +26,7 @@ async function ignoreTestFile(input, files) {
   });
 
   project.linkDevDependency('eslint', { baseDir: process.cwd() });
+  project.linkDevDependency('@eslint/js', { baseDir: process.cwd() });
   await project.write();
   await ignoreAll(project.baseDir);
 
@@ -82,6 +89,13 @@ if (10 === 'false') {
         {
           '.eslintrc.json':
             '{"extends": "eslint:recommended", "rules": { "no-constant-condition": "warn" }}',
+          //only for eslint 9
+          'eslint.config.js': `const js = require("@eslint/js");
+
+          module.exports = [
+              js.configs.recommended,
+              { rules: { "no-constant-condition": "warn" }}
+          ];`,
         },
       ),
     ).to.equal(`/* eslint-disable no-debugger */
