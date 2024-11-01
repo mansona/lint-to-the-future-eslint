@@ -1,5 +1,20 @@
 # Changelog
 
+## Release (2024-11-01)
+
+lint-to-the-future-eslint 2.2.0 (minor)
+
+#### :rocket: Enhancement
+* `lint-to-the-future-eslint`
+  * [#34](https://github.com/mansona/lint-to-the-future-eslint/pull/34) add support for eslint-9 ([@mansona](https://github.com/mansona))
+
+#### :house: Internal
+* `lint-to-the-future-eslint`
+  * [#32](https://github.com/mansona/lint-to-the-future-eslint/pull/32) add a test to cover the case of an empty eslint-disable ([@mansona](https://github.com/mansona))
+
+#### Committers: 1
+- Chris Manson ([@mansona](https://github.com/mansona))
+
 ## Release (2024-10-03)
 
 lint-to-the-future-eslint 2.1.3 (patch)
