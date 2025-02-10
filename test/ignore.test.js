@@ -5,7 +5,7 @@ import { readFileSync } from 'fs';
 
 import { describe, it } from 'vitest';
 
-import { ignoreAll } from '../index.js';
+import { ignoreAll } from '../main.mjs';
 
 async function ignoreTestFile(input, files) {
   const project = new Project({

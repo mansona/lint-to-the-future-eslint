@@ -5,7 +5,7 @@ import { readFileSync } from 'fs';
 
 import { describe, it } from 'vitest';
 
-import { remove } from '../index.js';
+import { remove } from '../main.mjs';
 
 async function setupProject(files) {
   const project = new Project({
