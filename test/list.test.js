@@ -3,7 +3,7 @@ import { Project } from 'fixturify-project';
 
 import { describe, it } from 'vitest';
 
-import { list } from '../index.js';
+import { list } from '../main.mjs';
 
 async function listFiles(files) {
   const project = new Project({
