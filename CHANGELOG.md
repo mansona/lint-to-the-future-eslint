@@ -1,5 +1,31 @@
 # Changelog
 
+## Release (2025-02-10)
+
+lint-to-the-future-eslint 3.0.0 (major)
+
+#### :boom: Breaking Change
+* `lint-to-the-future-eslint`
+  * [#41](https://github.com/mansona/lint-to-the-future-eslint/pull/41) drop support for eslint 7 ([@mansona](https://github.com/mansona))
+  * [#35](https://github.com/mansona/lint-to-the-future-eslint/pull/35) drop support for node <18 ([@mansona](https://github.com/mansona))
+
+#### :rocket: Enhancement
+* `lint-to-the-future-eslint`
+  * [#40](https://github.com/mansona/lint-to-the-future-eslint/pull/40) support filter ignore ([@mansona](https://github.com/mansona))
+  * [#39](https://github.com/mansona/lint-to-the-future-eslint/pull/39) convert to esmodule ([@mansona](https://github.com/mansona))
+
+#### :bug: Bug Fix
+* `lint-to-the-future-eslint`
+  * [#38](https://github.com/mansona/lint-to-the-future-eslint/pull/38) fix absolute file paths in output ([@mansona](https://github.com/mansona))
+
+#### :house: Internal
+* `lint-to-the-future-eslint`
+  * [#42](https://github.com/mansona/lint-to-the-future-eslint/pull/42) update release plan ([@mansona](https://github.com/mansona))
+  * [#37](https://github.com/mansona/lint-to-the-future-eslint/pull/37) move to vitest ([@mansona](https://github.com/mansona))
+
+#### Committers: 1
+- Chris Manson ([@mansona](https://github.com/mansona))
+
 ## Release (2024-11-01)
 
 lint-to-the-future-eslint 2.2.0 (minor)
