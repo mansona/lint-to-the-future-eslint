@@ -1,9 +1,8 @@
-import { expect } from 'chai';
 import { Project } from 'fixturify-project';
 import { join } from 'path';
 import { readFileSync } from 'fs';
 
-import { describe, it } from 'vitest';
+import { describe, it, expect } from 'vitest';
 
 import { remove } from '../main.mjs';
 

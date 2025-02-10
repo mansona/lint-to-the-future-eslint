@@ -1,7 +1,6 @@
-import { expect } from 'chai';
 import { Project } from 'fixturify-project';
 
-import { describe, it } from 'vitest';
+import { describe, it, expect } from 'vitest';
 
 import { list } from '../main.mjs';
 
