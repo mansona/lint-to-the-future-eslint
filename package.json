@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "import-cwd": "^3.0.0",
-    "semver": "^7.3.5",
     "walk-sync": "^3.0.0"
   },
   "devDependencies": {
