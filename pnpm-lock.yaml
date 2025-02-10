@@ -11,9 +11,6 @@ importers:
       import-cwd:
         specifier: ^3.0.0
         version: 3.0.0
-      semver:
-        specifier: ^7.3.5
-        version: 7.7.1
       walk-sync:
         specifier: ^3.0.0
         version: 3.0.0
@@ -4342,7 +4339,6 @@ snapshots:
     dependencies:
       eslint: 9.20.0
       import-cwd: 3.0.0
-      semver: 7.7.1
       walk-sync: 3.0.0
 
   lint-to-the-future@2.6.2(encoding@0.1.13):
