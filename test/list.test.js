@@ -1,6 +1,8 @@
 import { expect } from 'chai';
 import { Project } from 'fixturify-project';
 
+import { describe, it } from 'vitest';
+
 import { list } from '../index.js';
 
 async function listFiles(files) {
