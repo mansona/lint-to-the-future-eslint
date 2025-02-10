@@ -3,6 +3,8 @@ import { Project } from 'fixturify-project';
 import { join } from 'path';
 import { readFileSync } from 'fs';
 
+import { describe, it } from 'vitest';
+
 import { remove } from '../index.js';
 
 async function setupProject(files) {
