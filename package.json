@@ -11,8 +11,8 @@
     "test-watch": "npm run test -- -w --reporter min"
   },
   "dependencies": {
-    "import-cwd": "^3.0.0",
-    "walk-sync": "^3.0.0"
+    "globby": "^14.1.0",
+    "import-cwd": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
