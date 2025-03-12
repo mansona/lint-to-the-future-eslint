@@ -1,5 +1,21 @@
 # Changelog
 
+## Release (2025-03-12)
+
+lint-to-the-future-eslint 3.1.0 (minor)
+
+#### :rocket: Enhancement
+* `lint-to-the-future-eslint`
+  * [#43](https://github.com/mansona/lint-to-the-future-eslint/pull/43) Switch to globby for improved file filtering ([@wagenet](https://github.com/wagenet))
+
+#### :house: Internal
+* `lint-to-the-future-eslint`
+  * [#45](https://github.com/mansona/lint-to-the-future-eslint/pull/45) update release-plan ([@mansona](https://github.com/mansona))
+
+#### Committers: 2
+- Chris Manson ([@mansona](https://github.com/mansona))
+- Peter Wagenet ([@wagenet](https://github.com/wagenet))
+
 ## Release (2025-02-10)
 
 lint-to-the-future-eslint 3.0.0 (major)
