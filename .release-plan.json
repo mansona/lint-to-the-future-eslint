@@ -2,20 +2,16 @@
   "solution": {
     "lint-to-the-future-eslint": {
       "impact": "minor",
-      "oldVersion": "3.0.0",
-      "newVersion": "3.1.0",
+      "oldVersion": "3.1.0",
+      "newVersion": "3.2.0",
       "constraints": [
         {
           "impact": "minor",
           "reason": "Appears in changelog section :rocket: Enhancement"
-        },
-        {
-          "impact": "patch",
-          "reason": "Appears in changelog section :house: Internal"
         }
       ],
       "pkgJSONPath": "./package.json"
     }
   },
-  "description": "## Release (2025-03-12)\n\nlint-to-the-future-eslint 3.1.0 (minor)\n\n#### :rocket: Enhancement\n* `lint-to-the-future-eslint`\n  * [#43](https://github.com/mansona/lint-to-the-future-eslint/pull/43) Switch to globby for improved file filtering ([@wagenet](https://github.com/wagenet))\n\n#### :house: Internal\n* `lint-to-the-future-eslint`\n  * [#45](https://github.com/mansona/lint-to-the-future-eslint/pull/45) update release-plan ([@mansona](https://github.com/mansona))\n\n#### Committers: 2\n- Chris Manson ([@mansona](https://github.com/mansona))\n- Peter Wagenet ([@wagenet](https://github.com/wagenet))\n"
+  "description": "## Release (2025-07-31)\n\nlint-to-the-future-eslint 3.2.0 (minor)\n\n#### :rocket: Enhancement\n* `lint-to-the-future-eslint`\n  * [#46](https://github.com/mansona/lint-to-the-future-eslint/pull/46) Update get-files.js to include GJS/GTS files by default ([@nickschot](https://github.com/nickschot))\n\n#### Committers: 1\n- Nick Schot ([@nickschot](https://github.com/nickschot))\n"
 }
