@@ -70,4 +70,23 @@ let b = () => {};
 
     expect(result).to.deep.equal({});
   });
+
+  it('should work for GJS/GTS files by default', async function () {
+    const result = await listFiles({
+      'index.gjs': `/* eslint-disable no-unused-vars  */
+  let unused = 'face';
+
+  let b = () => {};
+  `,
+      'other.gts': `/* eslint-disable no-unused-vars  */
+  let unused = 'face';
+
+  let b = () => {};
+  `,
+    });
+
+    expect(result).to.deep.equal({
+      'no-unused-vars': ['index.gjs', 'other.gts'],
+    });
+  })
 });
