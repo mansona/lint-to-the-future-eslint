@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2025-07-31)
+
+lint-to-the-future-eslint 3.2.0 (minor)
+
+#### :rocket: Enhancement
+* `lint-to-the-future-eslint`
+  * [#46](https://github.com/mansona/lint-to-the-future-eslint/pull/46) Update get-files.js to include GJS/GTS files by default ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
 ## Release (2025-03-12)
 
 lint-to-the-future-eslint 3.1.0 (minor)
