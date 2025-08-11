@@ -148,5 +148,21 @@ debugger`);
       debugger",
       }
     `)
-  })
+  });
+
+  it('should not produce double commas when merging with existing disable comments', async function () {
+    expect(
+      (await ignoreTestFile(`/* eslint-disable ember/no-classic-classes, ember/no-classic-components */
+debugger`))['index.js'],
+    ).to.equal(`/* eslint-disable ember/no-classic-classes, ember/no-classic-components, no-debugger */
+debugger`);
+  });
+
+  it('should handle existing disable comments with empty entries gracefully', async function () {
+    expect(
+      (await ignoreTestFile(`/* eslint-disable ember/no-classic-classes, , ember/no-classic-components */
+debugger`))['index.js'],
+    ).to.equal(`/* eslint-disable ember/no-classic-classes, ember/no-classic-components, no-debugger */
+debugger`);
+  });
 });
