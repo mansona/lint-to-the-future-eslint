@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2025-12-14)
+
+lint-to-the-future-eslint 3.3.0 (minor)
+
+#### :rocket: Enhancement
+* `lint-to-the-future-eslint`
+  * [#48](https://github.com/mansona/lint-to-the-future-eslint/pull/48) Support ESLint flat config while maintaining legacy .eslintrc compatibility ([@edflips](https://github.com/edflips))
+
+#### Committers: 1
+- Ed Phillips ([@edflips](https://github.com/edflips))
+
 ## Release (2025-07-31)
 
 lint-to-the-future-eslint 3.2.0 (minor)
