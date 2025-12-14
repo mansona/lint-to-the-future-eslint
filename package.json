@@ -19,6 +19,7 @@
     "@babel/eslint-parser": "^7.19.1",
     "@eslint/js": "^9.14.0",
     "eslint": "^9.14.0",
+    "eslint-legacy": "npm:eslint@^8.0.0",
     "execa": "^9.5.2",
     "find-up": "^6.3.0",
     "fixturify-project": "^7.1.2",
@@ -31,7 +32,7 @@
     "vitest": "^3.0.5"
   },
   "peerDependencies": {
-    "eslint": "^6.0.0 || ^7.0.0 || ^8.0.0"
+    "eslint": "^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0"
   },
   "packageManager": "pnpm@10.2.1+sha512.398035c7bd696d0ba0b10a688ed558285329d27ea994804a52bad9167d8e3a72bcb993f9699585d3ca25779ac64949ef422757a6c31102c12ab932e5cbe5cc92",
   "engines": {
