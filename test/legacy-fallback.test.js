@@ -1,38 +1,6 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { Project } from 'fixturify-project';
-import path from 'path';
-
-// Mock import-cwd so that importCwd('eslint') returns a legacy-like API
-vi.mock('import-cwd', () => {
-  const mockESLintCtor = class {
-    constructor(options = {}) {
-      this.options = options;
-    }
-    async lintFiles() {
-      // minimal legacy-like result: one file with one error
-      return [
-        {
-          filePath: path.join(this.options.cwd || process.cwd(), 'index.js'),
-          errorCount: 1,
-          messages: [{ ruleId: 'no-debugger' }],
-        },
-      ];
-    }
-  };
-  // static method used by plugin to strip warnings
-  mockESLintCtor.getErrorResults = (results) => results;
-
-  // default export is a function(name) => module
-  const importCwd = (name) => {
-    if (name === 'eslint') {
-      return { ESLint: mockESLintCtor };
-    }
-    throw new Error(`Unexpected import-cwd request: ${name}`);
-  };
-  return { default: importCwd };
-});
-
-import { ignoreAll } from '../main.mjs';
+import { execa } from 'execa';
 
 describe('legacy fallback (no loadESLint)', () => {
   it('falls back to legacy ESLint constructor and writes rule-specific disable', async () => {
@@ -45,12 +13,14 @@ describe('legacy fallback (no loadESLint)', () => {
       },
     });
 
-    // create node_modules structure similarly to other tests
-    project.linkDevDependency('eslint', { baseDir: process.cwd() });
+    // we're linking to eslint-legacy here because that is the behaviour that we're testing
+    project.linkDevDependency('eslint', { baseDir: process.cwd(), resolveName: 'eslint-legacy' });
+    project.linkDevDependency('lint-to-the-future', { baseDir: process.cwd() });
+    project.linkDevDependency('lint-to-the-future-eslint', { baseDir: process.cwd() });
     await project.write();
 
     // Run ignoreAll against the project directory
-    await ignoreAll({}, project.baseDir);
+    await execa({cwd: project.baseDir})`npx lttf ignore`;
 
     project.readSync(project.baseDir);
     expect(project.files['index.js']).toEqual(`/* eslint-disable no-debugger */

@@ -19,6 +19,7 @@
     "@babel/eslint-parser": "^7.19.1",
     "@eslint/js": "^9.14.0",
     "eslint": "^9.14.0",
+    "eslint-legacy": "npm:eslint@^8.0.0",
     "execa": "^9.5.2",
     "find-up": "^6.3.0",
     "fixturify-project": "^7.1.2",
