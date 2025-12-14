@@ -1,8 +1,8 @@
 import { Project } from 'fixturify-project';
 import { describe, it, expect } from 'vitest';
-import { ignoreAll } from '../main.mjs';
+import { execa } from 'execa';
 
-async function runWithFlatConfig(files, options) {
+async function runWithFlatConfig(files) {
   const project = new Project({
     files: {
       // Flat config only (no .eslintrc.*)
@@ -26,9 +26,12 @@ module.exports = [
   // Use the repo's devDependency version of eslint
   project.linkDevDependency('eslint', { baseDir: process.cwd() });
   project.linkDevDependency('@eslint/js', { baseDir: process.cwd() });
+  project.linkDevDependency('lint-to-the-future', { baseDir: process.cwd() });
+  project.linkDevDependency('lint-to-the-future-eslint', { baseDir: process.cwd() });
   await project.write();
 
-  await ignoreAll(options ?? {}, project.baseDir);
+  // Run ignoreAll against the project directory
+  await execa({cwd: project.baseDir})`npx lttf ignore`;
 
   project.readSync(project.baseDir);
   return project.files;
