@@ -2,8 +2,8 @@
   "solution": {
     "lint-to-the-future-eslint": {
       "impact": "minor",
-      "oldVersion": "3.1.0",
-      "newVersion": "3.2.0",
+      "oldVersion": "3.2.0",
+      "newVersion": "3.3.0",
       "constraints": [
         {
           "impact": "minor",
@@ -13,5 +13,5 @@
       "pkgJSONPath": "./package.json"
     }
   },
-  "description": "## Release (2025-07-31)\n\nlint-to-the-future-eslint 3.2.0 (minor)\n\n#### :rocket: Enhancement\n* `lint-to-the-future-eslint`\n  * [#46](https://github.com/mansona/lint-to-the-future-eslint/pull/46) Update get-files.js to include GJS/GTS files by default ([@nickschot](https://github.com/nickschot))\n\n#### Committers: 1\n- Nick Schot ([@nickschot](https://github.com/nickschot))\n"
+  "description": "## Release (2025-12-14)\n\nlint-to-the-future-eslint 3.3.0 (minor)\n\n#### :rocket: Enhancement\n* `lint-to-the-future-eslint`\n  * [#48](https://github.com/mansona/lint-to-the-future-eslint/pull/48) Support ESLint flat config while maintaining legacy .eslintrc compatibility ([@edflips](https://github.com/edflips))\n\n#### Committers: 1\n- Ed Phillips ([@edflips](https://github.com/edflips))\n"
 }
