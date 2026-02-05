@@ -16,13 +16,15 @@
     "test-watch": "npm run test -- -w --reporter min"
   },
   "dependencies": {
-    "globby": "^16.2.0"
+    "globby": "^16.2.0",
+    "svelte": "^5.49.2"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "concurrently": "^10.0.3",
     "eslint": "^10.5.0",
     "eslint-legacy": "npm:eslint@^8.0.0",
+    "eslint-plugin-svelte": "^3.14.0",
     "execa": "^9.5.2",
     "find-up": "^6.3.0",
     "fixturify-project": "^7.1.2",
