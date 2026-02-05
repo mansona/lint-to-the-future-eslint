@@ -89,4 +89,63 @@ let b = () => {};
       'no-unused-vars': ['index.gjs', 'other.gts'],
     });
   });
+
+  it('should list Svelte files with eslint-disable in instance script', async function () {
+    const result = await listFiles({
+      'Component.svelte': `<script>
+/* eslint-disable no-unused-vars, no-undef */
+let unused = undefinedVar;
+</script>
+<div>test</div>`,
+    });
+
+    expect(result).to.deep.equal({
+      'no-unused-vars': ['Component.svelte'],
+      'no-undef': ['Component.svelte'],
+    });
+  });
+
+  it('should list Svelte files with eslint-disable in module script', async function () {
+    const result = await listFiles({
+      'Component.svelte': `<script context="module">
+/* eslint-disable no-unused-vars */
+let unused = 'test';
+</script>
+<div>test</div>`,
+    });
+
+    expect(result).to.deep.equal({
+      'no-unused-vars': ['Component.svelte'],
+    });
+  });
+
+  it('should list Svelte files with eslint-disable in both scripts', async function () {
+    const result = await listFiles({
+      'Component.svelte': `<script context="module">
+/* eslint-disable no-console */
+console.log('module');
+</script>
+<script>
+/* eslint-disable no-unused-vars */
+let unused = 'test';
+</script>
+<div>test</div>`,
+    });
+
+    expect(result).to.deep.equal({
+      'no-console': ['Component.svelte'],
+      'no-unused-vars': ['Component.svelte'],
+    });
+  });
+
+  it('should not list Svelte files without eslint-disable', async function () {
+    const result = await listFiles({
+      'Component.svelte': `<script>
+let x = 1;
+</script>
+<div>{x}</div>`,
+    });
+
+    expect(result).to.deep.equal({});
+  });
 });
