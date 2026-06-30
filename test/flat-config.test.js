@@ -27,11 +27,13 @@ module.exports = [
   project.linkDevDependency('eslint', { baseDir: process.cwd() });
   project.linkDevDependency('@eslint/js', { baseDir: process.cwd() });
   project.linkDevDependency('lint-to-the-future', { baseDir: process.cwd() });
-  project.linkDevDependency('lint-to-the-future-eslint', { baseDir: process.cwd() });
+  project.linkDevDependency('lint-to-the-future-eslint', {
+    baseDir: process.cwd(),
+  });
   await project.write();
 
   // Run ignoreAll against the project directory
-  await execa({cwd: project.baseDir})`npx lttf ignore`;
+  await execa({ cwd: project.baseDir })`npx lttf ignore`;
 
   project.readSync(project.baseDir);
   return project.files;
@@ -45,10 +47,9 @@ describe('flat config support', () => {
 debugger`,
     });
 
-    expect(files['index.js']).toEqual(`/* eslint-disable no-debugger, no-unused-vars */
+    expect(files['index.js'])
+      .toEqual(`/* eslint-disable no-debugger, no-unused-vars */
 import x from 'y'
 debugger`);
   });
 });
-
-

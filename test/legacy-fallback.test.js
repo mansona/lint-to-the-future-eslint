@@ -14,18 +14,21 @@ describe('legacy fallback (no loadESLint)', () => {
     });
 
     // we're linking to eslint-legacy here because that is the behaviour that we're testing
-    project.linkDevDependency('eslint', { baseDir: process.cwd(), resolveName: 'eslint-legacy' });
+    project.linkDevDependency('eslint', {
+      baseDir: process.cwd(),
+      resolveName: 'eslint-legacy',
+    });
     project.linkDevDependency('lint-to-the-future', { baseDir: process.cwd() });
-    project.linkDevDependency('lint-to-the-future-eslint', { baseDir: process.cwd() });
+    project.linkDevDependency('lint-to-the-future-eslint', {
+      baseDir: process.cwd(),
+    });
     await project.write();
 
     // Run ignoreAll against the project directory
-    await execa({cwd: project.baseDir})`npx lttf ignore`;
+    await execa({ cwd: project.baseDir })`npx lttf ignore`;
 
     project.readSync(project.baseDir);
     expect(project.files['index.js']).toEqual(`/* eslint-disable no-debugger */
 debugger`);
   });
 });
-
-

@@ -88,5 +88,5 @@ let b = () => {};
     expect(result).to.deep.equal({
       'no-unused-vars': ['index.gjs', 'other.gts'],
     });
-  })
+  });
 });

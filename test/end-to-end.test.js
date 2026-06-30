@@ -38,7 +38,7 @@ describe('end-to-end test', function () {
 
     expect(Object.entries(parsedOutput)[0][1]).to.deep.equal({
       'lint-to-the-future-eslint': {
-        'debugger': ['app/ignore-debugger.js'],
+        debugger: ['app/ignore-debugger.js'],
       },
     });
   });

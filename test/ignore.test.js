@@ -42,8 +42,10 @@ debugger`);
 
   it('should handle files with invalid `// eslint-disable` comments at the top', async function () {
     expect(
-      (await ignoreTestFile(`// eslint-disable no-debugger
-debugger`))['index.js'],
+      (
+        await ignoreTestFile(`// eslint-disable no-debugger
+debugger`)
+      )['index.js'],
     ).to.equal(`/* eslint-disable no-debugger */
 // eslint-disable no-debugger
 debugger`);
@@ -51,9 +53,11 @@ debugger`);
 
   it('should add to existing `/* eslint-disable` comments', async function () {
     expect(
-      (await ignoreTestFile(`/* eslint-disable no-console, no-undef */
+      (
+        await ignoreTestFile(`/* eslint-disable no-console, no-undef */
 debugger
-console.log('test')`))['index.js'],
+console.log('test')`)
+      )['index.js'],
     ).to.equal(`/* eslint-disable no-console, no-debugger, no-undef */
 debugger
 console.log('test')`);
@@ -61,9 +65,11 @@ console.log('test')`);
 
   it('handles `// eslint-disable-next-line` at the top of the file correctly', async function () {
     expect(
-      (await ignoreTestFile(`/* eslint-disable-next-line no-debugger */
+      (
+        await ignoreTestFile(`/* eslint-disable-next-line no-debugger */
 debugger
-console.log('test')`))['index.js'],
+console.log('test')`)
+      )['index.js'],
     ).to.equal(`/* eslint-disable no-undef */
 /* eslint-disable-next-line no-debugger */
 debugger
@@ -72,32 +78,36 @@ console.log('test')`);
 
   it('handles rules with slashes in the name', async function () {
     expect(
-      (await ignoreTestFile(`/* eslint-disable ember/no-observers */
-debugger`))['index.js'],
+      (
+        await ignoreTestFile(`/* eslint-disable ember/no-observers */
+debugger`)
+      )['index.js'],
     ).to.equal(`/* eslint-disable ember/no-observers, no-debugger */
 debugger`);
   });
 
   it('does not add ignores for warnings reported by eslint', async function () {
     expect(
-      (await ignoreTestFile(
-        `debugger
+      (
+        await ignoreTestFile(
+          `debugger
 
 if (10 === 'false') {
   // something
 }`,
-        {
-          '.eslintrc.json':
-            '{"extends": "eslint:recommended", "rules": { "no-constant-condition": "warn" }}',
-          //only for eslint 9
-          'eslint.config.js': `const js = require("@eslint/js");
+          {
+            '.eslintrc.json':
+              '{"extends": "eslint:recommended", "rules": { "no-constant-condition": "warn" }}',
+            //only for eslint 9
+            'eslint.config.js': `const js = require("@eslint/js");
 
           module.exports = [
               js.configs.recommended,
               { rules: { "no-constant-condition": "warn" }}
           ];`,
-        },
-      ))['index.js'],
+          },
+        )
+      )['index.js'],
     ).to.equal(`/* eslint-disable no-debugger */
 debugger
 
@@ -108,29 +118,37 @@ if (10 === 'false') {
 
   it('does the right thing with hash-bang/shebang files', async function () {
     expect(
-      (await ignoreTestFile(`#!/usr/bin/env node
-debugger`))['index.js'],
+      (
+        await ignoreTestFile(`#!/usr/bin/env node
+debugger`)
+      )['index.js'],
     ).to.equal(`#!/usr/bin/env node
 /* eslint-disable no-debugger */
 debugger`);
 
     expect(
-      (await ignoreTestFile(`#!/usr/bin/env node
+      (
+        await ignoreTestFile(`#!/usr/bin/env node
 /* eslint-disable some-other-lint */
-debugger`))['index.js'],
+debugger`)
+      )['index.js'],
     ).to.equal(`#!/usr/bin/env node
 /* eslint-disable no-debugger, some-other-lint */
 debugger`);
   });
 
-  it('supports ignore filter correctly', async function() {
-    const files = await ignoreTestFile(``, {
-      'ignore-me.js': 'debugger',
-      'update-me.js': 'debugger',
-      'update-me-too.js': 'debugger',
-    }, {
-      filter: 'update*.js'
-    });
+  it('supports ignore filter correctly', async function () {
+    const files = await ignoreTestFile(
+      ``,
+      {
+        'ignore-me.js': 'debugger',
+        'update-me.js': 'debugger',
+        'update-me-too.js': 'debugger',
+      },
+      {
+        filter: 'update*.js',
+      },
+    );
 
     expect(files).toMatchInlineSnapshot(`
       {
@@ -147,22 +165,28 @@ debugger`);
         "update-me.js": "/* eslint-disable no-debugger */
       debugger",
       }
-    `)
+    `);
   });
 
   it('should not produce double commas when merging with existing disable comments', async function () {
     expect(
-      (await ignoreTestFile(`/* eslint-disable ember/no-classic-classes, ember/no-classic-components */
-debugger`))['index.js'],
-    ).to.equal(`/* eslint-disable ember/no-classic-classes, ember/no-classic-components, no-debugger */
+      (
+        await ignoreTestFile(`/* eslint-disable ember/no-classic-classes, ember/no-classic-components */
+debugger`)
+      )['index.js'],
+    ).to
+      .equal(`/* eslint-disable ember/no-classic-classes, ember/no-classic-components, no-debugger */
 debugger`);
   });
 
   it('should handle existing disable comments with empty entries gracefully', async function () {
     expect(
-      (await ignoreTestFile(`/* eslint-disable ember/no-classic-classes, , ember/no-classic-components */
-debugger`))['index.js'],
-    ).to.equal(`/* eslint-disable ember/no-classic-classes, ember/no-classic-components, no-debugger */
+      (
+        await ignoreTestFile(`/* eslint-disable ember/no-classic-classes, , ember/no-classic-components */
+debugger`)
+      )['index.js'],
+    ).to
+      .equal(`/* eslint-disable ember/no-classic-classes, ember/no-classic-components, no-debugger */
 debugger`);
   });
 });

@@ -1,5 +1,10 @@
-'use strict';
-
-module.exports = {
-  singleQuote: true,
+export default {
+  overrides: [
+    {
+      files: '*.{js,ts,mjs,mts,cjs,cts}',
+      options: {
+        singleQuote: true,
+      },
+    },
+  ],
 };
