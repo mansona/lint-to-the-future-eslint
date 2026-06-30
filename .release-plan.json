@@ -1,17 +1,26 @@
 {
   "solution": {
     "lint-to-the-future-eslint": {
-      "impact": "minor",
-      "oldVersion": "3.2.0",
-      "newVersion": "3.3.0",
+      "impact": "major",
+      "oldVersion": "3.3.0",
+      "newVersion": "4.0.0",
+      "tagName": "latest",
       "constraints": [
+        {
+          "impact": "major",
+          "reason": "Appears in changelog section :boom: Breaking Change"
+        },
         {
           "impact": "minor",
           "reason": "Appears in changelog section :rocket: Enhancement"
+        },
+        {
+          "impact": "patch",
+          "reason": "Appears in changelog section :house: Internal"
         }
       ],
       "pkgJSONPath": "./package.json"
     }
   },
-  "description": "## Release (2025-12-14)\n\nlint-to-the-future-eslint 3.3.0 (minor)\n\n#### :rocket: Enhancement\n* `lint-to-the-future-eslint`\n  * [#48](https://github.com/mansona/lint-to-the-future-eslint/pull/48) Support ESLint flat config while maintaining legacy .eslintrc compatibility ([@edflips](https://github.com/edflips))\n\n#### Committers: 1\n- Ed Phillips ([@edflips](https://github.com/edflips))\n"
+  "description": "## Release (2026-06-30)\n\n* lint-to-the-future-eslint 4.0.0 (major)\n\n#### :boom: Breaking Change\n* `lint-to-the-future-eslint`\n  * [#53](https://github.com/mansona/lint-to-the-future-eslint/pull/53) drop support for node < 20.19 ([@mansona](https://github.com/mansona))\n\n#### :rocket: Enhancement\n* `lint-to-the-future-eslint`\n  * [#56](https://github.com/mansona/lint-to-the-future-eslint/pull/56) replace import-cwd with a createRequire ([@mansona](https://github.com/mansona))\n  * [#55](https://github.com/mansona/lint-to-the-future-eslint/pull/55) update globby to v16 ([@mansona](https://github.com/mansona))\n  * [#52](https://github.com/mansona/lint-to-the-future-eslint/pull/52) Support eslint 10 ([@davidtaylorhq](https://github.com/davidtaylorhq))\n\n#### :house: Internal\n* `lint-to-the-future-eslint`\n  * [#58](https://github.com/mansona/lint-to-the-future-eslint/pull/58) update release-plan to support OIDC ([@mansona](https://github.com/mansona))\n  * [#57](https://github.com/mansona/lint-to-the-future-eslint/pull/57) configure prettier and run it on all files ([@mansona](https://github.com/mansona))\n\n#### Committers: 2\n- Chris Manson ([@mansona](https://github.com/mansona))\n- David Taylor ([@davidtaylorhq](https://github.com/davidtaylorhq))\n"
 }

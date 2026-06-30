@@ -1,5 +1,28 @@
 # Changelog
 
+## Release (2026-06-30)
+
+* lint-to-the-future-eslint 4.0.0 (major)
+
+#### :boom: Breaking Change
+* `lint-to-the-future-eslint`
+  * [#53](https://github.com/mansona/lint-to-the-future-eslint/pull/53) drop support for node < 20.19 ([@mansona](https://github.com/mansona))
+
+#### :rocket: Enhancement
+* `lint-to-the-future-eslint`
+  * [#56](https://github.com/mansona/lint-to-the-future-eslint/pull/56) replace import-cwd with a createRequire ([@mansona](https://github.com/mansona))
+  * [#55](https://github.com/mansona/lint-to-the-future-eslint/pull/55) update globby to v16 ([@mansona](https://github.com/mansona))
+  * [#52](https://github.com/mansona/lint-to-the-future-eslint/pull/52) Support eslint 10 ([@davidtaylorhq](https://github.com/davidtaylorhq))
+
+#### :house: Internal
+* `lint-to-the-future-eslint`
+  * [#58](https://github.com/mansona/lint-to-the-future-eslint/pull/58) update release-plan to support OIDC ([@mansona](https://github.com/mansona))
+  * [#57](https://github.com/mansona/lint-to-the-future-eslint/pull/57) configure prettier and run it on all files ([@mansona](https://github.com/mansona))
+
+#### Committers: 2
+- Chris Manson ([@mansona](https://github.com/mansona))
+- David Taylor ([@davidtaylorhq](https://github.com/davidtaylorhq))
+
 ## Release (2025-12-14)
 
 lint-to-the-future-eslint 3.3.0 (minor)
