@@ -1684,9 +1684,9 @@ packages:
 
   'lint-to-the-future-eslint@file:':
     resolution: {directory: '', type: directory}
-    engines: {node: 10.* || >= 12.*}
+    engines: {node: 20.* || 22.* || 24.* || >= 26.*}
     peerDependencies:
-      eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
+      eslint: ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0
 
   lint-to-the-future@2.6.2:
     resolution: {integrity: sha512-l8fmDddu7Gqp/gzIyYU+dVUDonaH/GIH9SnldoG+5bNqpdwQE+p4xS6sLuFo+N7MNTMXdq7HBUa9J3nrDkAzQg==}
