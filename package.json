@@ -11,8 +11,7 @@
     "test-watch": "npm run test -- -w --reporter min"
   },
   "dependencies": {
-    "globby": "^16.2.0",
-    "import-cwd": "^3.0.0"
+    "globby": "^16.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
